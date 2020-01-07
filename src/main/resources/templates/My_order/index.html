@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+<link href="../libs/layui/css/layui.css" rel="stylesheet">
+<script type="text/javascript" src="../libs/jquery/jquery-1.11.1.js"></script>
+<script type="text/javascript" src="../libs/layui/layui.all.js"></script>
+<script type="text/javascript" src="../libs/js/util.js"></script>
+<script type="text/javascript" src="../libs/js/mylayer.js"></script>
+<link href="../css/css.css" rel="stylesheet">
+
+   </head>
+<body style="margin-left: 50px;">
+	<div class="demoTable">
+	<script type="text/javascript">
+	function del(id){
+		if(confirm("是否删除？")){
+			location.href="delete?id="+id;
+		}
+	}
+	function topage(pos){
+		location.href="index?pageno="+pos;
+	}
+	</script>
+	
+	
+ <form action="index" method="post"> 
+<input name="where" th:value="${val!=null?val:''}" > <button  class="layui-btn" type="submit">查询</button> 
+<button  class="layui-btn" type="button" onclick="location.href='add'">新增</button>
+</form>
+	</div>
+<div class="layui-form layui-border-box layui-table-view" >
+	<div class="layui-table-box">
+		<div class="layui-table-body layui-table-main" >
+			<table  class="layui-table" style="table-layout: fixed;">
+			<thead>
+					<tr>
+					<th style="width:100px"> 订单编号</th>
+					<th>货品</th><th>价格</th><th>创建时间</th><th style="width:150px">顾客</th><th>操作</th></tr>
+				</thead>
+				<tbody>
+				<tr th:each="t:${list}">
+                <td th:text="${t.id}"></td>
+                <td th:text="${t.goods}"></td>
+                <td th:text="${t.price}"></td>
+                <td th:text="${t.create_time}"></td>
+                 <td th:text="${t.customer}"></td>
+                 
+                 <td >
+                <a href="javascript:;" th:attr="onclick=@{'del('+${t.id}+')'}">删除</a>
+                 <a  th:href="@{'edit?id='+${t.id}}">修改</a>
+                 </td>
+            </tr>
+			
+				</tbody>
+			</table>
+		</div>
+	</div>
+	
+	<div class="layui-table-page">
+		<div class="layui-table-page1">
+			<div class="layui-box layui-laypage layui-laypage-default" >
+			<span class="layui-laypage-skip">
+			<button type="button" class="layui-laypage-btn" th:attr="onclick=@{'topage('+${result.prevno}+');' }" >上一页</button>
+			<button type="button" class="layui-laypage-btn" th:attr="onclick=@{'topage('+${result.nextno}+');' }" >下一页</button>
+			</span>
+				</div>
+		</div>
+	</div>
+	
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

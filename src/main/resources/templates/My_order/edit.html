@@ -1,0 +1,42 @@
+<!DOCTYPE html >
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../libs/css/edit.css">
+<script type="text/javascript" src="../libs/js/jquery.min.js"></script>
+</head>
+<body>
+	
+		<form th:action="${info==null}?insert:update"    method="post" th:object="${info}" enctype="multipart/form-data">
+		<!-- enctype="multipart/form-data  允许form表单上传文件 -->	
+		<input name="id"    type="hidden" th:value="${info!=null}?*{id}:0">
+		
+		<div class="inputview">			
+		
+		<span class="inputspan"> 
+		<label class="inputtext">货品:</label> 
+		<input name="goods"  class="inputinput" th:value="${info!=null}?*{goods}">
+		</span>
+	
+		
+		<span class="inputspan"> 
+		<label class="inputtext">价格:</label> 
+		
+<input name="price" th:value="${info!=null}?*{price}" class="inputinput">
+</span>
+		
+				<span class="inputspan"> 
+		<label class="inputtext">顾客:</label> 
+		
+<input name="customer" th:value="${info!=null}?*{customer}" class="inputinput">
+</span>
+	
+		<div class="inputbtpanel ">
+		<button class="seachbt1" type="submit" >修改</button>
+		</div>
+		</div>
+	</form>
+
+</body>
+</html>
+
