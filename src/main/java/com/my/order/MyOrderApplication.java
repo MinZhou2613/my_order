@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 @MapperScan("com.my.order.mapper")
-public class MyOrderApplication {
+public class MyOrderApplication {          //test  hoihoihoihugkhlihophop
 
 	public static void main(String[] args) {
 		SpringApplication.run(MyOrderApplication.class, args);

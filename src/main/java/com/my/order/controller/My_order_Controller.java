@@ -23,11 +23,10 @@ import com.my.order.utils.Tools;
 
 @Controller
 @RequestMapping("My_order")
-public class My_order_Controller {
-	@Autowired
+public class My_order_Controller {      //test bhhfhihohgiofufuiiuuhgpohgphegoiehggggggg
+	@Autowiredru
 	My_order_Service service;
-	
-	
+	123123
 	@RequestMapping("index")
 	public String index(SearchInfo info,Model m) {
 		if(info.getWhere()!=null) {

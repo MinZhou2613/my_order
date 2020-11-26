@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class My_order {
 	
-	
-	private int id;
+	123dd1231
+	private int id;         //test scosuf210984971258979871598798749297598729857iufigggggggg
 	private String goods;
 	private float price;
 	private Date create_time;
